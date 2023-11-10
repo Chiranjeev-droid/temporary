@@ -1,53 +1,53 @@
 header {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .navbar {
-    justify-content: end;
+  justify-content: end;
 }
 
 .navbar-container {
-    margin: 0 3%;
-    min-height: 75px;
-    max-height: 120px;
-    padding-top: 10px;
-    justify-content: space-between;
+  margin: 0 3%;
+  min-height: 75px;
+  max-height: 120px;
+  padding-top: 10px;
+  justify-content: space-between;
 }
 
 .page-title {
-    color: rgba(81, 166, 90, 0.938);
-    text-decoration: none;
-    text-align: left;
-    font-size: 40px;
+  color: #2b2f38;
+  text-decoration: none;
+  text-align: left;
+  font-size: 40px;
 }
 
 .page-title:hover {
-    color: rgb(255, 159, 135);
-    opacity: 50%;
-    transition: all .5s ease;
+  color: rgb(255, 159, 135);
+  opacity: 50%;
+  transition: all 0.5s ease;
 }
 
 .navbar-links {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .link {
-    color: rgb(56, 56, 56);
-    text-decoration: none;
+  color: rgb(56, 56, 56);
+  text-decoration: none;
 }
 .link:hover {
-    color: rgb(98, 98, 98);
+  color: rgb(98, 98, 98);
 }
 
 @media screen and (width <= 750px) {
-    .navbar {
-        text-align: center;
-        justify-content: center;
-    }
-    .title-links {
-        flex-direction: column;
-    }
-    .page-title {
-        text-align: center;
-    }
+  .navbar {
+    text-align: center;
+    justify-content: center;
+  }
+  .title-links {
+    flex-direction: column;
+  }
+  .page-title {
+    text-align: center;
+  }
 }

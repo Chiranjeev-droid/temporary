@@ -20,7 +20,7 @@ const Header = () => {
         <Row className="title-links">
           <Col>
             <Link className="page-title" to="/">
-              <h1 className="m-0">recipefinder</h1>
+              <h1 className="m-0">The Recipe Finder</h1>
             </Link>
           </Col>
           <Col>

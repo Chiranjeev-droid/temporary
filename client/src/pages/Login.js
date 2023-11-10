@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 import { saveMealIds } from "../utils/localStorage";
 
-import './Login.css';
-import Auth from '../utils/auth';
+import "./Login.css";
+import Auth from "../utils/auth";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
@@ -37,15 +37,14 @@ const Login = (props) => {
       });
 
       saveMealIds(idMeals);
-
     } catch (e) {
       console.error(e);
     }
 
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
@@ -56,7 +55,10 @@ const Login = (props) => {
     >
       <div className="login-form">
         <div className="card" style={{ border: "none" }}>
-          <h4 className="card-header" style={{ backgroundColor: "#FFD2CC" }}>
+          <h4
+            className="card-header"
+            style={{ backgroundColor: "#EFE6FD", textAlign: "left" }}
+          >
             Login
           </h4>
           <div
@@ -67,7 +69,7 @@ const Login = (props) => {
               justifyContent: "center",
               margin: "0 auto",
               padding: "9px 25px 25px 25px",
-              backgroundColor: "#FFD2CC",
+              backgroundColor: "#EFE6FD",
             }}
           >
             {data ? (
@@ -105,12 +107,12 @@ const Login = (props) => {
                   className="login-btn"
                   style={{
                     cursor: "pointer",
-                    backgroundColor: "#ABD69D",
+                    backgroundColor: "#CEF024",
                     alignItems: "center",
                     marginTop: "5%",
                     width: "150px",
                     height: "30px",
-                    borderRadius: "3px",
+                    borderRadius: "10px",
                     border: "none",
                   }}
                 >

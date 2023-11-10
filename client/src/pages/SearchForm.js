@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Col, Row} from "react-bootstrap";
-
+import { Col, Row } from "react-bootstrap";
 
 import { searchRecipes } from "../utils/API";
 import SearchResult from "../components/SearchResult";
@@ -10,25 +9,17 @@ import SearchResult from "../components/SearchResult";
 import "./searchForm.css";
 
 const inputReset = (id) => {
-
   document.getElementById(id).value = "";
-
 };
 
 const selectReset = (id) => {
-
   document.getElementById(id).selectedIndex = 0;
-
 };
 
-
-
 const SearchForm = () => {
-
   // const [state, dispatch] = useRecipeContext();
 
   // const { categories, areas, category, area, ingredient, mealName } = state;
-
 
   const [categoryList, setCategoryList] = useState([]);
   const [areaList, setAreaList] = useState([]);
@@ -43,29 +34,24 @@ const SearchForm = () => {
   const handleSelectChange = (event) => {
     if (event.target.name === "area") {
       setSelectedArea(event.target.value);
-      setSelectedCategory("");       
-      inputReset("mealName");  
-      inputReset("ingredient");  
+      setSelectedCategory("");
+      inputReset("mealName");
+      inputReset("ingredient");
       selectReset("category");
-     
     } else if (event.target.name === "category") {
       setSelectedCategory(event.target.value);
       setSelectedArea("");
-      inputReset("mealName");  
-      inputReset("ingredient");  
-      selectReset("area");      
-     
+      inputReset("mealName");
+      inputReset("ingredient");
+      selectReset("area");
     } else if (event.target.name === "ingredient") {
       setSearchIngredient(event.target.value);
       setSelectedCategory("");
       setSelectedArea("");
-     
-     
     } else if (event.target.name === "mealName") {
       setSearchMealName(event.target.value);
       setSelectedCategory("");
       setSelectedArea("");
-         
     }
   };
 
@@ -79,23 +65,22 @@ const SearchForm = () => {
     if (event.target.name === "ingredient") {
       setSelectedIngredient(searchIngredient);
       setSelectedMealName("");
-      inputReset("mealName");  
+      inputReset("mealName");
       selectReset("category");
       selectReset("area");
       // console.log(searchIngredient);
     } else if (event.target.name === "mealName") {
       setSelectedMealName(searchMealName);
       setSelectedIngredient("");
-      inputReset("ingredient");  
+      inputReset("ingredient");
       selectReset("category");
-      selectReset("area");  
+      selectReset("area");
       // console.log("selectedMealName",selectedMealName);
     }
 
     // console.log("selectedIngredient: ",selectedIngredient);
     setSelectedCategory("");
-    setSelectedArea("");    
-    
+    setSelectedArea("");
   };
 
   useEffect(() => {
@@ -151,7 +136,7 @@ const SearchForm = () => {
             name="ingredient"
             className="searchbar"
             placeholder="Search Ingredient"
-            onChange={handleSelectChange}            
+            onChange={handleSelectChange}
             id="ingredient"
           />
           <button
@@ -171,15 +156,19 @@ const SearchForm = () => {
             id="category"
           >
             <option value="">Category</option>
-            
-            
-             {categoryList.map((category) => (              
+
+            {categoryList.map((category) => (
               <option key={category.strCategory} value={category.strCategory}>
                 {category.strCategory}
               </option>
             ))}
           </select>{" "}
-          <select name="area" className="filter" onChange={handleSelectChange} id="area">
+          <select
+            name="area"
+            className="filter"
+            onChange={handleSelectChange}
+            id="area"
+          >
             <option value=""> Cuisine</option>
             {areaList.map((area) => (
               <option key={area.strArea} value={area.strArea}>

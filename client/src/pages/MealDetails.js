@@ -57,14 +57,13 @@ const MealDetails = () => {
   useEffect(() => {
     getMealDetails(`lookup.php?i=${idMeal}`);
     // setShoppingList(checkedValues);
-    // checkChangeController();    
+    // checkChangeController();
   }, []);
 
   useEffect(() => {
     console.log("savedMealIds: ", savedMealIds);
     saveMealIds(savedMealIds);
-  },[savedMealIds]);
-
+  }, [savedMealIds]);
 
   // useEffect(() => {
   //   console.log("Inside useEffect");
@@ -178,7 +177,7 @@ const MealDetails = () => {
           item,
           purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
         });
-        idbPromise('cart', 'put', {
+        idbPromise("cart", "put", {
           ...itemInCart,
           purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
         });
@@ -188,7 +187,11 @@ const MealDetails = () => {
           type: ADD_TO_CART,
           product: { item: item, price: 0.99, purchaseQuantity: 1 },
         });
-        idbPromise('cart', 'put', { item: item, price: 0.99, purchaseQuantity: 1 });
+        idbPromise("cart", "put", {
+          item: item,
+          price: 0.99,
+          purchaseQuantity: 1,
+        });
       }
     });
 
@@ -201,10 +204,8 @@ const MealDetails = () => {
         type: REMOVE_FROM_CART,
         item: item,
       });
-      idbPromise('cart', 'delete', { item });
+      idbPromise("cart", "delete", { item });
     });
-
-
   };
 
   const checkChangeController = () => {
@@ -230,26 +231,22 @@ const MealDetails = () => {
 
   // checkChangeController();
   function selects() {
-    var ele = document.getElementsByName('ingredient');
+    var ele = document.getElementsByName("ingredient");
     console.log("ele: ", ele);
     for (var i = 0; i < ele.length; i++) {
-      if (ele[i].type == 'checkbox')
-        ele[i].checked = true;
+      if (ele[i].type == "checkbox") ele[i].checked = true;
     }
     checkChangeController();
   }
 
   function deSelect() {
-    var ele = document.getElementsByName('ingredient');
+    var ele = document.getElementsByName("ingredient");
     console.log("ele: ", ele);
     for (var i = 0; i < ele.length; i++) {
-      if (ele[i].type == 'checkbox')
-        ele[i].checked = false;
-
+      if (ele[i].type == "checkbox") ele[i].checked = false;
     }
     checkChangeController();
   }
-
 
   return (
     <div>
@@ -273,7 +270,7 @@ const MealDetails = () => {
                   width="336"
                   alt={meal.strMeal}
                 />
-                {meal.strYoutube && (
+                {/* {meal.strYoutube && (
                   <iframe
                     title={`${meal.strMeal} Video`}
                     width="336"
@@ -285,7 +282,7 @@ const MealDetails = () => {
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
-                )}
+                )} */}
               </div>
               <div
                 style={{
@@ -308,7 +305,7 @@ const MealDetails = () => {
                               type="checkbox"
                               defaultChecked={false}
                               value={ingredient}
-                              name='ingredient'
+                              name="ingredient"
                               onChange={checkChangeController}
                             />{" "}
                             {ingredient}: {meal.strMeasures[index]}
@@ -317,13 +314,19 @@ const MealDetails = () => {
                       }
                       return null;
                     })}
-
                   </ol>
-                  <input type="button" onClick={selects} value="Select All" />
-                  {' '}
-                  <input type="button" onClick={deSelect} value="Deselect All" />
-
-
+                  <input
+                    type="button"
+                    class="save-btn btn"
+                    onClick={selects}
+                    value="Select"
+                  />{" "}
+                  <input
+                    type="button"
+                    class="save-btn btn"
+                    onClick={deSelect}
+                    value="Deselect"
+                  />
                 </div>
               </div>
             </div>

@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-
-import Auth from '../utils/auth';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 import "./Signup.css";
-
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -42,12 +39,15 @@ const Signup = () => {
   return (
     <main
       className="signup-container"
-      style={{ backgroundColor: "#F5FFF0", height: "80vh" }}
+      style={{ backgroundColor: "#fcf4ed", height: "90vh" }}
     >
       <div className="signup-form">
         <div className="card" style={{ border: "none" }}>
-          <h4 className="card-header" style={{ backgroundColor: "#FFD2CC" }}>
-            Sign Up
+          <h4
+            className="card-header"
+            style={{ backgroundColor: "#EFE6FD", textAlign: "left" }}
+          >
+            Register
           </h4>
           <div
             className="card-body"
@@ -57,7 +57,7 @@ const Signup = () => {
               justifyContent: "center",
               margin: "0 auto",
               padding: "9px 25px 25px 25px",
-              backgroundColor: "#FFD2CC",
+              backgroundColor: "#EFE6FD",
             }}
           >
             {data ? (
@@ -103,7 +103,7 @@ const Signup = () => {
                   className="signup-btn"
                   style={{
                     cursor: "pointer",
-                    backgroundColor: "#ABD69D",
+                    backgroundColor: "#CEF024",
                     alignItems: "center",
                     marginTop: "5%",
                     width: "150px",
